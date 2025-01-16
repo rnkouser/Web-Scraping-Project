@@ -1,0 +1,10 @@
+import requests
+from bs4 import BeautifulSoup
+
+req = requests.get("https://www.amazon.ca/amazon-fire-tv-stick-hd/dp/B0CQN248PX?pd_rd_w=wJMS2&content-id=amzn1.sym.39526d57-066e-456c-bc01-eab1026394a8&pf_rd_p=39526d57-066e-456c-bc01-eab1026394a8&pf_rd_r=XCK0BD2XJZ4KCKBM40H0&pd_rd_wg=o3ptG&pd_rd_r=438e1871-25be-41e0-8175-a56817d4a7ed&pd_rd_i=B0CQN248PX&ref_=pd_hp_d_btf_unk_B0CQN248PX/")
+
+soup = BeautifulSoup(req.content,"html.parser")
+
+res = soup.title
+
+print(res.get_text())
